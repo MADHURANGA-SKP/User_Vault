@@ -32,7 +32,7 @@ export default function UserDetailScreen ({ navigation }) {
       {user.educationDetails.map((edu, index) => (
         <Text key={index}>{edu.institution} - {edu.degree}</Text>
       ))}
-      <Button title="Edit" onPress={() => navigation.navigate("EditForm")} />
+      <Button title="Edit" onPress={() => navigation.navigate("EditUserScreen")} />
       <Button title="Reset" onPress={resetUser} />
     </View>
   );

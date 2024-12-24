@@ -49,15 +49,15 @@ export default function HomeScreen({ navigation }) {
       {/* Navigation Buttons */}
       <View style={styles.navigationSection}>
         <Button
-          title="Edit User Details"
-          onPress={() => navigation.navigate("EditFromScreen")}
+          title="Create of Edit User Details"
+          onPress={() => navigation.navigate("EditUserScreen")}
           color="#6200ee"
         />
-        <Button
+        {/* <Button
           title="Input User Details"
           onPress={() => navigation.navigate("InputUserScreen")}
           color="#6200ee"
-        />
+        /> */}
         <Button
           title="View User Details"
           onPress={() => navigation.navigate("UserDetailScreen")}
