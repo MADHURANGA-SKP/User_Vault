@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, Text, View, Image, Button, ScrollView } from "react-native";
+import { StyleSheet, Text, View, Image, Button, ScrollView, TouchableOpacity } from "react-native";
 import { useUser } from "../context/AppContext";
 
 export default function HomeScreen({ navigation }) {
@@ -7,7 +7,6 @@ export default function HomeScreen({ navigation }) {
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
-      {/* User Profile Section */}
       <View style={styles.profileSection}>
         {user.profilePicture ? (
           <Image source={{ uri: user.profilePicture }} style={styles.profileImage} />
@@ -21,7 +20,6 @@ export default function HomeScreen({ navigation }) {
         <Text style={styles.userDetails}>Address: {user.address || "N/A"}</Text>
       </View>
 
-      {/* User Additional Details */}
       <View style={styles.detailsSection}>
         <Text style={styles.sectionTitle}>Family Details:</Text>
         {user.familyDetails.length > 0 ? (
@@ -48,21 +46,23 @@ export default function HomeScreen({ navigation }) {
 
       {/* Navigation Buttons */}
       <View style={styles.navigationSection}>
-        <Button
-          title="Create of Edit User Details"
-          onPress={() => navigation.navigate("EditUserScreen")}
-          color="#6200ee"
-        />
-        {/* <Button
-          title="Input User Details"
-          onPress={() => navigation.navigate("InputUserScreen")}
-          color="#6200ee"
-        /> */}
-        <Button
-          title="View User Details"
-          onPress={() => navigation.navigate("UserDetailScreen")}
-          color="#6200ee"
-        />
+        <View style={styles.btnwrap}>
+        <TouchableOpacity
+          style={styles.Button}
+          onPress={() => navigation.navigate('EditUserScreen')}
+          >
+          <Text style={styles.buttonText}>Create User Details</Text>
+          </TouchableOpacity>
+        </View>
+
+        <View style={styles.btnwrap}>
+        <TouchableOpacity
+          style={styles.Button}
+          onPress={() => navigation.navigate('UserDetailScreen')}
+          >
+          <Text style={styles.buttonText}>View User Details</Text>
+          </TouchableOpacity>
+        </View>
       </View>
     </ScrollView>
   );
@@ -94,12 +94,12 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   placeholderText: {
-    color: "#555",
+    color: "#2B2C4E",
   },
   userName: {
     fontSize: 20,
     fontWeight: "bold",
-    color: "#333",
+    color: "#2B2C4E",
   },
   userDetails: {
     fontSize: 16,
@@ -112,7 +112,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: "bold",
     marginBottom: 5,
-    color: "#6200ee",
+    color: "#2B2C4E",
   },
   detailText: {
     fontSize: 16,
@@ -121,5 +121,18 @@ const styles = StyleSheet.create({
   },
   navigationSection: {
     marginTop: 20,
+  },
+  buttonText: {
+    color: "white",
+    fontSize: 16,
+    fontWeight: "bold",
+  },
+  Button: {
+    marginTop: 10,
+    backgroundColor: "#2B2C4E",
+    paddingVertical: 10,
+    paddingHorizontal: 10,
+    borderRadius: 30,
+    alignItems: "center",
   },
 });

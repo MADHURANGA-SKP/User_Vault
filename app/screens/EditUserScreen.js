@@ -128,7 +128,14 @@ export default function EditUserScreen({ navigation }) {
       ) : (
         <Text style={styles.placeholder}>No profile picture selected.</Text>
       )}
-      <Button title="Select Profile Picture" onPress={pickImage} />
+      <View style={styles.btnwrap}>
+              <TouchableOpacity
+                style={styles.Button}
+                onPress={pickImage}
+                >
+                <Text style={styles.buttonText}>Select Profile Picture</Text>
+              </TouchableOpacity>
+      </View>
 
       {/* Family Details */}
       <Text style={styles.label}>Family Details:</Text>
@@ -139,12 +146,19 @@ export default function EditUserScreen({ navigation }) {
       />
       <View style={styles.row}>
         <TextInput
-          style={styles.input}
+          style={styles.input1}
           value={newFamilyDetail}
           placeholder="Add Family Detail"
           onChangeText={setNewFamilyDetail}
         />
-        <Button title="Add" onPress={handleAddFamilyDetail} />
+        <View style={styles.btnwrap}>
+                <TouchableOpacity
+                  style={styles.Button1}
+                  onPress={handleAddEducationDetail}
+                  >
+                  <Text style={styles.buttonText}>Add</Text>
+                  </TouchableOpacity>
+        </View>
       </View>
 
       {/* Education Details */}
@@ -156,16 +170,29 @@ export default function EditUserScreen({ navigation }) {
       />
       <View style={styles.row}>
         <TextInput
-          style={styles.input}
+          style={styles.input1}
           value={newEducationDetail}
           placeholder="Add Education Detail"
           onChangeText={setNewEducationDetail}
         />
-        <Button title="Add" onPress={handleAddEducationDetail} />
+        <View style={styles.btnwrap}>
+                <TouchableOpacity
+                  style={styles.Button1}
+                  onPress={handleAddEducationDetail}
+                  >
+                  <Text style={styles.buttonText}>Add</Text>
+                  </TouchableOpacity>
+        </View>
       </View>
 
-      {/* Update Button */}
-      <Button title="Update" onPress={handleSubmit} />
+      <View style={styles.btnwrap}>
+                <TouchableOpacity
+                  style={styles.Button1}
+                  onPress={handleSubmit}
+                  >
+                  <Text style={styles.buttonText}>Update</Text>
+                </TouchableOpacity>
+        </View>
     </ScrollView>
   );
 }
@@ -180,14 +207,24 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: "bold",
     marginBottom: 5,
+    color: "#2B2C4E"
   },
   input: {
     borderWidth: 1,
     borderColor: "#ccc",
-    borderRadius: 5,
+    borderRadius: 30,
     padding: 10,
     marginBottom: 15,
     fontSize: 14,
+  },
+  input1: {
+    borderWidth: 1,
+    borderColor: "#ccc",
+    borderRadius: 30,
+    padding: 10,
+    marginBottom: 15,
+    fontSize: 14,
+    marginRight:5
   },
   image: {
     width: 100,
@@ -217,8 +254,28 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     paddingVertical: 10, 
   },
+  buttonText: {
+    color: "white",
+    fontSize: 16,
+    fontWeight: "bold",
+  },
+  Button: {
+    backgroundColor: "#2B2C4E",
+    paddingVertical: 10,
+    paddingHorizontal: 10,
+    borderRadius: 30,
+    alignItems: "center",
+  },
+  Button1: {
+    backgroundColor: "#2B2C4E",
+    paddingVertical: 10,
+    paddingHorizontal: 10,
+    borderRadius: 30,
+    alignItems: "center",
+    marginBottom: 15,
+  },
   BackButton: {
-    backgroundColor: '#9A82F6',
+    backgroundColor: '#2B2C4E',
     paddingVertical: 8,
     paddingHorizontal: 12,
     borderRadius: 5,
