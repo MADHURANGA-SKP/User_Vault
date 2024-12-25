@@ -154,7 +154,7 @@ export default function EditUserScreen({ navigation }) {
         <View style={styles.btnwrap}>
                 <TouchableOpacity
                   style={styles.Button1}
-                  onPress={handleAddEducationDetail}
+                  onPress={handleAddFamilyDetail}
                   >
                   <Text style={styles.buttonText}>Add</Text>
                   </TouchableOpacity>
@@ -256,6 +256,11 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     color: "white",
+    fontSize: 16,
+    fontWeight: "bold",
+  },
+  title: {
+    color: "#2B2C4E",
     fontSize: 16,
     fontWeight: "bold",
   },
