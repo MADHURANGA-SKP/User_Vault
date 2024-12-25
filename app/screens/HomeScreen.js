@@ -44,7 +44,6 @@ export default function HomeScreen({ navigation }) {
         )}
       </View>
 
-      {/* Navigation Buttons */}
       <View style={styles.navigationSection}>
         <View style={styles.btnwrap}>
         <TouchableOpacity
